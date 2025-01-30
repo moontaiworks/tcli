@@ -1,0 +1,77 @@
+{
+  "name": "@moontaiworks/package-template",
+  "type": "module",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.0.0",
+  "description": "package-template",
+  "author": "moontaiworks",
+  "license": "UNLICENSED",
+  "homepage": "https://moontaiworks.github.io/package-template",
+  "bugs": {
+    "url": "https://github.com/moontaiworks/package-template/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moontaiworks/package-template.git"
+  },
+  "keywords": [],
+  "files": [
+    "build",
+    "dist"
+  ],
+  "types": "./build/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "browser": "./dist/index.iife.js",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./build/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rm -rf dist build docs && npm run build:tsc && npm run build:cjs && npm run build:esm && npm run build:iife && npm run build:doc",
+    "build:tsc": "tsc --project src/tsconfig.build.json && tsc-alias --project src/tsconfig.build.json",
+    "build:cjs": "esbuild src/index.ts --format=cjs --outfile=dist/index.cjs --bundle --minify --sourcemap --target=es6",
+    "build:esm": "esbuild src/index.ts --format=esm --outfile=dist/index.mjs --bundle --minify --sourcemap --target=es6",
+    "build:iife": "esbuild src/index.ts --format=iife --global-name=package_template --outfile=dist/index.iife.js --bundle --minify --sourcemap --target=es6",
+    "build:doc": "typedoc",
+    "test": "vitest",
+    "lint": "eslint ; prettier --check .",
+    "lint:fix": "eslint --fix ; prettier --write .",
+    "prepare": "husky || true"
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --cache",
+    "*.*": "prettier --check --ignore-unknown"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@eslint/js": "^9.11.1",
+    "@types/eslint__js": "^8.42.3",
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "@vitest/coverage-v8": "^2.1.1",
+    "esbuild": "^0.24.0",
+    "eslint": "^9.11.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-plugin-import-x": "^4.4.2",
+    "eslint-plugin-n": "^17.14.0",
+    "eslint-plugin-perfectionist": "^3.9.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "tsc-alias": "^1.8.10",
+    "typedoc": "^0.26.7",
+    "typedoc-plugin-missing-exports": "^3.0.0",
+    "typescript": "~5.5",
+    "typescript-eslint": "^8.7.0",
+    "vitest": "^2.1.1"
+  }
+}
