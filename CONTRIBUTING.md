@@ -10,8 +10,8 @@
 ### Clone and install dependencies
 
 ```bash
-git clone https://github.com/moontaiworks/package-template.git
-cd package-template
+git clone https://github.com/moontaiworks/tcli.git
+cd tcli
 pnpm install
 ```
 

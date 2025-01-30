@@ -1,23 +1,29 @@
 {
-  "name": "@moontaiworks/package-template",
+  "name": "@moontaiworks/tcli",
   "type": "module",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
   "version": "0.0.0",
-  "description": "package-template",
+  "description": "tcli",
   "author": "moontaiworks",
-  "license": "UNLICENSED",
-  "homepage": "https://moontaiworks.github.io/package-template",
+  "license": "MIT",
+  "homepage": "https://moontaiworks.github.io/tcli",
   "bugs": {
-    "url": "https://github.com/moontaiworks/package-template/issues"
+    "url": "https://github.com/moontaiworks/tcli/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moontaiworks/package-template.git"
+    "url": "git+https://github.com/moontaiworks/tcli.git"
   },
-  "keywords": [],
+  "keywords": [
+    "typebox",
+    "cli",
+    "args",
+    "arguments",
+    "parser"
+  ],
   "files": [
     "build",
     "dist"
@@ -34,11 +40,10 @@
     }
   },
   "scripts": {
-    "build": "rm -rf dist build docs && npm run build:tsc && npm run build:cjs && npm run build:esm && npm run build:iife && npm run build:doc",
+    "build": "rm -rf dist build docs && npm run build:tsc && npm run build:cjs && npm run build:esm",
     "build:tsc": "tsc --project src/tsconfig.build.json && tsc-alias --project src/tsconfig.build.json",
-    "build:cjs": "esbuild src/index.ts --format=cjs --outfile=dist/index.cjs --bundle --minify --sourcemap --target=es6",
-    "build:esm": "esbuild src/index.ts --format=esm --outfile=dist/index.mjs --bundle --minify --sourcemap --target=es6",
-    "build:iife": "esbuild src/index.ts --format=iife --global-name=package_template --outfile=dist/index.iife.js --bundle --minify --sourcemap --target=es6",
+    "build:cjs": "esbuild src/index.ts --platform=node --format=cjs --outfile=dist/index.cjs --bundle --minify --sourcemap --target=es6",
+    "build:esm": "esbuild src/index.ts --platform=node --format=esm --outfile=dist/index.mjs --bundle --minify --sourcemap --target=es6",
     "build:doc": "typedoc",
     "test": "vitest",
     "lint": "eslint ; prettier --check .",

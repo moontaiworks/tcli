@@ -41,17 +41,12 @@ export default [
         "error",
         {
           groups: [
-            "type",
-            "builtin",
-            "external",
-            "internal-type",
+            ["builtin", "external"],
             "internal",
-            ["parent-type", "sibling-type", "index-type"],
             ["parent", "sibling", "index"],
-            "object",
-            "unknown",
+            ["object", "unknown"],
           ],
-          internalPattern: ["~/*", "@/*"],
+          internalPattern: ["~/**", "@/**"],
         },
       ],
     },
@@ -65,14 +60,6 @@ export default [
           allowModules: ["eslint-config-prettier"],
         },
       ],
-    },
-  },
-  {
-    files: ["src/**/*.ts"],
-    rules: {
-      // if this repo is expected to be a package that could be used by both
-      // node and browser, we need to enable this rule
-      "import-x/no-nodejs-modules": "error",
     },
   },
   eslintConfigPrettier,
