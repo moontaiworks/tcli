@@ -6,7 +6,7 @@
     "access": "public"
   },
   "version": "0.0.0",
-  "description": "tcli",
+  "description": "CLI with TypeBox",
   "author": "moontaiworks",
   "license": "MIT",
   "homepage": "https://moontaiworks.github.io/tcli",
@@ -40,10 +40,8 @@
     }
   },
   "scripts": {
-    "build": "rm -rf dist build docs && npm run build:tsc && npm run build:cjs && npm run build:esm",
+    "build": "rm -rf dist build docs && npm run build:tsc && npx -y tsx scripts/build.ts --iife",
     "build:tsc": "tsc --project src/tsconfig.build.json && tsc-alias --project src/tsconfig.build.json",
-    "build:cjs": "esbuild src/index.ts --platform=node --format=cjs --outfile=dist/index.cjs --bundle --minify --sourcemap --target=es6",
-    "build:esm": "esbuild src/index.ts --platform=node --format=esm --outfile=dist/index.mjs --bundle --minify --sourcemap --target=es6",
     "build:doc": "typedoc",
     "test": "vitest",
     "lint": "eslint ; prettier --check .",
@@ -63,6 +61,7 @@
     "@typescript-eslint/parser": "^8.8.0",
     "@vitest/coverage-v8": "^2.1.1",
     "esbuild": "^0.24.0",
+    "esbuild-node-externals": "^1.18.0",
     "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.3",
