@@ -6,7 +6,7 @@
     "emitDeclarationOnly": true,
     "target": "ES6",
 
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "lib": ["ESNext"],
 
     "rootDir": ".",
     "paths": {

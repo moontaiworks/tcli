@@ -8,7 +8,7 @@
     "baseUrl": "../src",
     "types": ["vitest/globals"]
   },
-  "include": ["./**/*.ts", "../src/**/*.spec.ts", "../src/**/*.d.ts"],
+  "include": ["./**/*.ts", "../src/**/*.ts"],
   "references": [
     {
       "path": "../src"
