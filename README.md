@@ -7,7 +7,7 @@
 ## Features
 
 - Type strong! by supporting [TypeBox](https://github.com/sinclairzx81/typebox).
-- Based on node native function [`node:utils:parseArgs`](https://nodejs.org/api/util.html#utilparseargsconfig) to parse arguments.
+- Based on node native function [`node:utils:parseArgs`](https://nodejs.org/api/util.html#utilparseargsconfig) to parse arguments. (Node version must be greater than or equal to 20)
 
 ## Install
 
