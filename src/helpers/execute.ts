@@ -1,6 +1,6 @@
 import { parseArgs } from "node:util";
 
-import { Type } from "@sinclair/typebox";
+import { type Static, Type } from "@sinclair/typebox";
 import { Value } from "@sinclair/typebox/value";
 
 import { InvalidArguments } from "@/errors/invalid-arguments";
@@ -29,6 +29,5 @@ export async function execute(command: Command) {
 
   if (validationErrors.length) throw new InvalidArguments(validationErrors);
 
-  // TODO: Implement This.
-  return Promise.resolve(converted);
+  return command.handler(converted as Static<typeof schema>);
 }
